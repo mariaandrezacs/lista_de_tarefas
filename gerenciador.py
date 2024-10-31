@@ -7,7 +7,7 @@ def adicionar_tarefa(tarefas, nome_tarefa):
 def ver_tarefas(tarefas): 
     print("\nLista de tarefas:")
     for indice, tarefa in enumerate(tarefas, start=1):
-        status = "V" if tarefa["completada"] else " "
+        status = "v" if tarefa["completada"] else " "
         nome_tarefa = tarefa["tarefa"]
         print(f"{indice}. [{status}] {nome_tarefa}")
     return
@@ -21,7 +21,11 @@ def atualizar_nome_tarefa(tarefas, indice_tarefa, novo_nome_tarefa):
         print("Indice de tarefa inválido.")
     return
 
-
+def completar_tarefa(tarefas, indice_tarefa): 
+    indice_tarefa_ajustado = int(indice_tarefa) - 1
+    tarefas[indice_tarefa_ajustado]["completada"] = True
+    print(f"Tarefa {indice_tarefa} marcada como completada")
+    return
 
 tarefas = []
 
@@ -46,6 +50,10 @@ while True:
         indice_tarefa = input("Digite o numero da tarefa que deseja atualizar: ")
         novo_nome = input("Digite o novo nome da tarefa: ")
         atualizar_nome_tarefa(tarefas, indice_tarefa, novo_nome)
+    elif escolha == "4": 
+        ver_tarefas(tarefas)
+        indice_tarefa = input("Digite o numero da tarefa que deseja completar: ")
+        completar_tarefa(tarefas, indice_tarefa)
     elif escolha == "6":
         break
 print("Programa finalizado")
