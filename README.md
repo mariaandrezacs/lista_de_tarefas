@@ -20,3 +20,5 @@ marcar como concluídas e remover tarefas.
 - Certifique-se de ter o Python instalado em seu sistema.
 - Baixe ou clone este repositório.
 - Execute o script principal em um terminal: [ **python gerenciador_de_tarefas.py** ]
+
+  
